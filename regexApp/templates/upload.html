@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+<div class="container m-3">
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header text-center">
+                    Regex Search
+                </div>
+                <div class="container">
+                    <img class="card-img-top img-fluid" src="{% static 'uploadIcon.jpg' %}"  alt="Upload Icon">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Upload file</h5>
+                <div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="{% url 'uploadFile' %}">
+                                <button type="button" value="submit" class="btn bg-gradient btn-primary">Submit</button>
+                            </a>
+                            <a href="{% url 'index' %}">
+                                <button type="button" value="cancel" class="btn bg-gradient btn-danger">Cancel</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}  

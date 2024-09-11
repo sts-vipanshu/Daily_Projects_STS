@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container text-end">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand">HydNet</a>
+                    <a href="{%url 'uploadFile'%}">
+                        <button class="btn bg-bg-gradient btn-outline-success" type='submit'>
+                            Upload
+                        </button>
+                    </a>    
+                </div>
+            </nav>
+        <div class="container text-center" id="checkToRender">
+            {% if request.POST == "POST" %}
+                <h3>{{outputKey}}</h3>
+                <h3>{{outputValue}}</h3>
+            {% else %}
+                <h3>Nothing to show yet, please upload some file(s).</h3>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+</div>  
+{% endblock %}
